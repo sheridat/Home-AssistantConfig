@@ -1,0 +1,59 @@
+  default_view:
+    view: yes
+    entities:
+      - sun.sun
+      - device_tracker.alcatel_shine_lite
+      - device_tracker.moto_e_4
+      - sensor.garage_light
+      - group.Temps
+      
+      
+  
+  livingroom_view:
+    view: yes
+    entities:
+      - sensor.lr_light
+      - sensor.lr_tempc
+      - group.Lights
+      - group.TV
+  
+  garage_view:
+    view: yes
+    entities:
+      - group.Garage
+      
+      
+
+
+
+###### Groups ######
+  Temps:
+    name: Temp
+    entities:
+      - sensor.lr_tempc
+      - sensor.garden_temp
+      - sensor.garage_temp
+  
+  Lights:
+    name: LR lights
+    #control: hidden
+    entities:
+      - switch.living_room_lights
+      - switch.ts_light
+      - switch.ck_light
+        
+
+  TV:
+    name: TV
+    control: hidden
+    entities:
+      - switch.virgin_pause
+      - switch.virgin_play
+
+  Garage: 
+    name: Garage Sensors
+    entities:
+      - sensor.garage_temp
+      - sensor.garage_light
+
+  

@@ -1,0 +1,26 @@
+###################################################
+## Various MQTT sensors
+###################################################
+
+- platform: mqtt
+  state_topic: "Home/Garden/BME/Temperature"
+  name: "Garden BME Temp"
+  unit_of_measurement: "C"
+
+- platform: mqtt
+  state_topic: "Home/Garden/BME/Humidity"
+  name: "Garden Humidity"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  state_topic: "Home/Garden/BME/Pressure"
+  name: "Outside Pressure"
+  unit_of_measurement: "Hpa"
+
+- platform: mqtt
+  state_topic: "Home/Garden/Dallas/Temperature"
+  name: "Garden Temp"
+  unit_of_measurement: "C"
+
+
+

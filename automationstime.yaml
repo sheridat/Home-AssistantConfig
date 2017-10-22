@@ -1,0 +1,12 @@
+
+  trigger:
+    platform: time
+    at: "18:20:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.living_room_light
+    
+      
+      
+
+    

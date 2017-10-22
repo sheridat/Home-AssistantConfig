@@ -1,0 +1,25 @@
+
+  sensor.garden_temp: 
+    icon: mdi:thermometer-lines 
+    friendly_name: "Garden temperature" 
+  sensor.lr_tempc: 
+    icon: mdi:thermometer-lines 
+    friendly_name: "Living Room temperature" 
+  sensor.garage_temp:
+    icon: mdi:thermometer-lines 
+    friendly_name: "Garage temperature" 
+  
+  switch.living_room_lights:
+    icon: mdi:lamp
+  switch.ts_light:
+    icon: mdi:lamp
+  switch.ck_light:
+    icon: mdi:lamp
+
+  switch.virgin_pause:
+    icon: mdi:television
+  switch.virgin_play:
+    icon: mdi:television
+  
+
+  

@@ -1,0 +1,60 @@
+
+- id: terry
+  alias: terry_bt_on
+  trigger:
+    platform: state
+    entity_id: device_tracker.moto_e_4
+    from: not_home
+    to: home
+  action:
+    service: switch.turn_on
+    entity_id: switch.ts_light
+
+- id: chris
+  alias: chris_bt_on
+  trigger:
+    platform: state
+    entity_id: device_tracker.alcatel_shine_lite
+    from: not_home
+    to: home
+  action:
+    service: switch.turn_on
+    entity_id: switch.ck_light
+
+- id: lowlux
+  alias: LR_low_lux
+  trigger:
+  - above: 1
+    below: 15
+    entity_id: sensor.lr_light
+    platform: numeric_state
+  action:
+  - entity_id: switch.living_room_lights
+    service: switch.turn_on
+  condition:
+  - after: 09:30:00
+    condition: time
+
+- id: highlux
+  alias: LR_High_lux
+  trigger:
+  - above: 20
+    entity_id: sensor.lr_light
+    platform: numeric_state
+  action:
+  - entity_id: switch.living_room_lights
+    service: switch.turn_off
+  condition:
+  - after: 09:30:00
+    before: '16:00:00'
+    condition: time
+
+- id: Lights_on_before_sunset  
+  alias: Turn on the lights when the sun sets
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+  - entity_id: switch.living_room_lights
+    service: switch.turn_on

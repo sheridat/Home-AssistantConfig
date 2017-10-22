@@ -1,0 +1,37 @@
+###################################################
+## Various MQTT sensors
+###################################################
+
+- platform: mqtt
+  state_topic: "Home/Internal/BME/Temperature"
+  name: "LR BME Temp"
+  unit_of_measurement: "C"
+
+- platform: mqtt
+  state_topic: "Home/Internal/Dallas/TemperatureC"
+  name: "LR TempC"
+  unit_of_measurement: "C"
+
+- platform: mqtt
+  state_topic: "Home/Internal/Dallas/TemperatureF"
+  name: "LR TempF"
+  unit_of_measurement: "F"
+  
+- platform: mqtt
+  state_topic: "Home/Internal/BME/Humidity"
+  name: "LR Humidity"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  state_topic: "Home/Internal/BME/Pressure"
+  name: "LR Pressure"
+  unit_of_measurement: "Hpa"
+
+- platform: mqtt
+  state_topic: "Home/Internal/Lux"
+  name: "LR Light"
+  unit_of_measurement: "Lux"
+
+ 
+  
+

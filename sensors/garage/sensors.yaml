@@ -1,0 +1,15 @@
+###################################################
+## Various MQTT sensors
+###################################################
+
+- platform: mqtt
+  state_topic: "Home/Garage/Light/Lux"
+  name: "Garage Light"
+  unit_of_measurement: "Lux" 
+
+- platform: mqtt
+  state_topic: "Home/Garage/Dallas/Temperature"
+  name: "Garage Temp"
+  unit_of_measurement: "C" 
+  
+

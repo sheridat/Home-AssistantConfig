@@ -1,0 +1,123 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 54.9881
+  longitude: -1.6194
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 66
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Customization file
+  customize: !include_dir_merge_named customize
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+sun: yr
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+device_tracker:
+  - platform: bluetooth_tracker
+  
+mqtt:
+  broker: 192.168.0.16
+ 
+
+
+  
+
+# Track the sun
+#sun:
+
+# Weather prediction
+#sensor:
+# - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+switch:
+  - platform: rpi_rf
+    gpio: 14
+    switches:
+      CK_light: 
+        code_on: 4265731
+        code_off: 4265740
+        pulselength: 180
+        protocol: 1
+        signal_repetitions: 25
+      TS_light: 
+        code_on: 4267267
+        code_off: 4267276
+        pulselength: 180
+        protocol: 1
+        signal_repetitions: 25
+      Living_room_lights:
+        code_on: 4265731,4267267
+        code_off: 4265740,4267276
+        pulselength: 180
+        protocol: 1
+        signal_repetitions: 25
+
+  - platform: command_line
+    switches:
+     virgin_pause:
+      command_on: 'echo IRCODE PAUSE | telnet 192.168.0.11 31339'
+      command_off: 'echo IRCODE PAUSE | telnet 192.168.0.11 31339'
+      friendly_name: Virgin Pause
+     virgin_play:
+      command_on: 'echo IRCODE PLAY | telnet 192.168.0.11 31339'
+      command_off: 'echo IRCODE PLAY | telnet 192.168.0.11 31339'
+      friendly_name: Virgin Play
+
+  
+
+automation: !include automations.yaml
+group: !include groups.yaml
+#device_tracker: !include_dir_merge_list device_tracker
+sensor: !include_dir_merge_list sensors
+#scene: !include_dir_merge_list scene
+#switch: !include_dir_merge_list switches
+script: !include_dir_merge_named scripts
+#input_boolean: !include_dir_merge_named input_boolean
+#shell_command: !include_dir_merge_named shell_command
+
+
+
+
+

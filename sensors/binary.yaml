@@ -1,0 +1,6 @@
+binary_sensor:
+  - platform: threshold
+    name: "low lux"
+    threshold: 100
+    type: lower
+    entity_id: sensor.lr_light 
